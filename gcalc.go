@@ -9,7 +9,7 @@ import (
 	"runtime"
 )
 
-const ver float32 = 0.62
+const ver float32 = 0.63
 
 func clearTerm() {
 	white := color.New(color.FgWhite, color.BgBlack).Render
