@@ -27,7 +27,7 @@ func clearTerm() {
 		cmd := exec.Command("cmd", "/c", "cls")
 		cmd.Stdout = os.Stdout
 		cmd.Run()
-		_, errWindowsClearTerm := fmt.Print(blue("GCalc ", ver), white("by "), blue("WideHardo J\n"), lightYellow("A simple terminal calculator written in "), blue("Go"), lightYellow(".\nFormatting goes {number operation number}.\n"))
+		_, errWindowsClearTerm := fmt.Print(blue("GCalc ", ver), white(" by "), blue("WideHardo J\n"), lightYellow("A simple terminal calculator written in "), blue("Go"), lightYellow(".\nFormatting goes {number operation number}.\n"))
 		if errWindowsClearTerm != nil {
 			log.Fatal("defaultPrintErr: ", errWindowsClearTerm)
 		}
