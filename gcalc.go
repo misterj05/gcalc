@@ -18,7 +18,7 @@ func clearTerm() {
 
 	switch runtime.GOOS {
 	case "linux":
-		_, errLinuxClearTerm := fmt.Println("\033[H\033[2J\033[34mGCalc", ver, "\033[97mby \033[35mWideHardo J\n\033[33mA simple terminal calculator written in \033[34mGo\033[33m.\nFormatting goes {number operation number}.\n\033[0m")
+		_, errLinuxClearTerm := fmt.Println("\033[H\033[2J\033[34mGCalc", ver, "\033[97mby \033[35mWideHardo J\n\033[33mA simple terminal calculator written in \033[34mGo\033[33m.\nFormatting goes {number operation number}. Example:(2 + 3)\n\033[0m")
 		// _, errLinuxClearTerm := fmt.Print(blue("GCalc by "), purple("WideHardo J\n"), yellow("A simple terminal calculator written in "), blue("Go"), yellow(".\nFormatting goes {number operation number}.\n"))
 		if errLinuxClearTerm != nil {
 			log.Fatal("linuxPrintErr: ", errLinuxClearTerm)
@@ -27,12 +27,12 @@ func clearTerm() {
 		cmd := exec.Command("cmd", "/c", "cls")
 		cmd.Stdout = os.Stdout
 		cmd.Run()
-		_, errWindowsClearTerm := fmt.Print(blue("GCalc ", ver), white(" by "), blue("WideHardo J\n"), lightYellow("A simple terminal calculator written in "), blue("Go"), lightYellow(".\nFormatting goes {number operation number}.\n"))
+		_, errWindowsClearTerm := fmt.Print(blue("GCalc ", ver), white(" by "), blue("WideHardo J\n"), lightYellow("A simple terminal calculator written in "), blue("Go"), lightYellow(".\nFormatting goes {number operation number}. Example:(2 + 3)\n"))
 		if errWindowsClearTerm != nil {
 			log.Fatal("defaultPrintErr: ", errWindowsClearTerm)
 		}
 	default:
-		_, errDefaultPrint := fmt.Println("GCalc ", ver, "by WideHardo J\nA simple terminal calculator written in Go.\nFormatting goes {number operation number}.\n")
+		_, errDefaultPrint := fmt.Println("GCalc ", ver, "by WideHardo J\nA simple terminal calculator written in Go.\nFormatting goes {number operation number}. Example:(2 + 3)\n")
 		if errDefaultPrint != nil {
 			log.Fatal("defaultPrintErr: ", errDefaultPrint)
 		}
