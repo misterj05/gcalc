@@ -9,11 +9,11 @@ import (
 	"runtime"
 )
 
-const ver float32 = 0.61
+const ver float32 = 0.62
 
 func clearTerm() {
 	white := color.New(color.FgWhite, color.BgBlack).Render
-	blue := color.New(color.FgLightBlue, color.BgBlack).Render
+	blue := color.New(color.FgCyan, color.BgBlack).Render
 	lightYellow := color.New(color.FgLightYellow, color.BgBlack).Render
 
 	switch runtime.GOOS {
@@ -27,7 +27,7 @@ func clearTerm() {
 		cmd := exec.Command("cmd", "/c", "cls")
 		cmd.Stdout = os.Stdout
 		cmd.Run()
-		_, errWindowsClearTerm := fmt.Print(blue("GCalc "), white(ver, "by "), blue("WideHardo J\n"), lightYellow("A simple terminal calculator written in "), blue("Go"), lightYellow(".\nFormatting goes {number operation number}.\n"))
+		_, errWindowsClearTerm := fmt.Print(blue("GCalc ", ver), white("by "), blue("WideHardo J\n"), lightYellow("A simple terminal calculator written in "), blue("Go"), lightYellow(".\nFormatting goes {number operation number}.\n"))
 		if errWindowsClearTerm != nil {
 			log.Fatal("defaultPrintErr: ", errWindowsClearTerm)
 		}
