@@ -24,7 +24,7 @@ func clearTerm() {
 		// _, errLinuxClearTerm := fmt.Print(blue("GCalc by "), purple("WideHardo J\n"), yellow("A simple terminal calculator written in "), blue("Go"), yellow(".\nFormatting goes {number operation number}.\n"))
 		if errLinuxClearTerm != nil {
 			log.Println("linuxClearTermPrintErr: ", errLinuxClearTerm)
-			time.Sleep(2)
+			time.Sleep(2 * time.Second)
 		}
 	case "windows":
 		cmd := exec.Command("cmd", "/c", "cls")
@@ -33,13 +33,13 @@ func clearTerm() {
 		_, errWindowsClearTerm := fmt.Print(blue("GCalc ", ver), white(" by "), blue("WideHardo J\n"), lightYellow("A simple terminal calculator written in "), blue("Go"), lightYellow(".\nFormatting goes {number operation number}. Example:2 + 3"))
 		if errWindowsClearTerm != nil {
 			log.Println("windowsClearTermPrintErr: ", errWindowsClearTerm)
-			time.Sleep(2)
+			time.Sleep(2 * time.Second)
 		}
 	default:
 		_, errDefaultClearTerm := fmt.Println("GCalc ", ver, "by WideHardo J\nA simple terminal calculator written in Go.\nFormatting goes {number operation number}. Example:2 + 3")
 		if errDefaultClearTerm != nil {
 			log.Println("defaultClearTermPrintErr: ", errDefaultClearTerm)
-			time.Sleep(2)
+			time.Sleep(2 * time.Second)
 		}
 	}
 }
@@ -52,18 +52,18 @@ func main() {
 		_, errPrintExp := fmt.Println("Give an expression.")
 		if errPrintExp != nil {
 			log.Println("Print Expression Error: ", errPrintExp)
-			time.Sleep(2)
+			time.Sleep(2 * time.Second)
 		}
 		_, errScan := fmt.Scanln(&num1, &operator, &num2)
 		if errScan != nil {
 			log.Println("Scan Error: ", errScan)
-			time.Sleep(2)
+			time.Sleep(2 * time.Second)
 		}
 		clearTerm()
 		_, errPrintResult := fmt.Printf("%d %s %d = ", num1, operator, num2)
 		if errPrintResult != nil {
 			log.Println("Print Result Error: ", errPrintResult)
-			time.Sleep(2)
+			time.Sleep(2 * time.Second)
 		}
 		switch operator {
 		case "+":
