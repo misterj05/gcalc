@@ -20,24 +20,24 @@ func clearTerm() {
 
 	switch runtime.GOOS {
 	case "linux":
-		_, errLinuxClearTerm := fmt.Println("\033[H\033[2J\033[34mGCalc", ver, "\033[97mby \033[35mMister J\n\033[33mA simple terminal calculator written in \033[34mGo\033[33m.\nFormatting goes {number operation number}. Example:2 + 3\033[0m")
-		if errLinuxClearTerm != nil {
-			log.Println("linuxClearTermPrintErr: ", errLinuxClearTerm)
+		_, err := fmt.Println("\033[H\033[2J\033[34mGCalc", ver, "\033[97mby \033[35mMister J\n\033[33mA simple terminal calculator written in \033[34mGo\033[33m.\nFormatting goes {number operation number}. Example:2 + 3\033[0m")
+		if err != nil {
+			log.Println("linuxClearTermPrintErr: ", err)
 			time.Sleep(2 * time.Second)
 		}
 	case "windows":
 		cmd := exec.Command("cmd", "/c", "cls")
 		cmd.Stdout = os.Stdout
 		cmd.Run()
-		_, errWindowsClearTerm := fmt.Print(blue("GCalc ", ver), white(" by "), blue("Mister J\n"), lightYellow("A simple terminal calculator written in "), blue("Go"), lightYellow(".\nFormatting goes {number operation number}. Example:2 + 3"))
-		if errWindowsClearTerm != nil {
-			log.Println("windowsClearTermPrintErr: ", errWindowsClearTerm)
+		_, err := fmt.Print(blue("GCalc ", ver), white(" by "), blue("Mister J\n"), lightYellow("A simple terminal calculator written in "), blue("Go"), lightYellow(".\nFormatting goes {number operation number}. Example:2 + 3"))
+		if err != nil {
+			log.Println("windowsClearTermPrintErr: ", err)
 			time.Sleep(2 * time.Second)
 		}
 	default:
-		_, errDefaultClearTerm := fmt.Println("GCalc ", ver, "by Mister J\nA simple terminal calculator written in Go.\nFormatting goes {number operation number}. Example:2 + 3")
-		if errDefaultClearTerm != nil {
-			log.Println("defaultClearTermPrintErr: ", errDefaultClearTerm)
+		_, err := fmt.Println("GCalc ", ver, "by Mister J\nA simple terminal calculator written in Go.\nFormatting goes {number operation number}. Example:2 + 3")
+		if err != nil {
+			log.Println("defaultClearTermPrintErr: ", err)
 			time.Sleep(2 * time.Second)
 		}
 	}
@@ -48,20 +48,20 @@ func main() {
 	var operator string
 	clearTerm()
 	for {
-		_, errPrintExp := fmt.Println("Give an expression.")
-		if errPrintExp != nil {
-			log.Println("Print Expression Error: ", errPrintExp)
+		_, err := fmt.Println("Give an expression.")
+		if err != nil {
+			log.Println("Print Expression Error: ", err)
 			time.Sleep(2 * time.Second)
 		}
-		_, errScan := fmt.Scanln(&num1, &operator, &num2)
-		if errScan != nil {
-			log.Println("Scan Error: ", errScan)
+		_, err = fmt.Scanln(&num1, &operator, &num2)
+		if err != nil {
+			log.Println("Scan Error: ", err)
 			time.Sleep(2 * time.Second)
 		}
 		clearTerm()
-		_, errPrintResult := fmt.Printf("%d %s %d = ", num1, operator, num2)
-		if errPrintResult != nil {
-			log.Println("Print Result Error: ", errPrintResult)
+		_, err = fmt.Printf("%d %s %d = ", num1, operator, num2)
+		if err != nil {
+			log.Println("Print Result Error: ", err)
 			time.Sleep(2 * time.Second)
 		}
 		switch operator {
