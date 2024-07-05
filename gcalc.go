@@ -21,7 +21,6 @@ func clearTerm() {
 	switch runtime.GOOS {
 	case "linux":
 		_, errLinuxClearTerm := fmt.Println("\033[H\033[2J\033[34mGCalc", ver, "\033[97mby \033[35mMister J\n\033[33mA simple terminal calculator written in \033[34mGo\033[33m.\nFormatting goes {number operation number}. Example:2 + 3\033[0m")
-		// _, errLinuxClearTerm := fmt.Print(blue("GCalc by "), purple("WideHardo J\n"), yellow("A simple terminal calculator written in "), blue("Go"), yellow(".\nFormatting goes {number operation number}.\n"))
 		if errLinuxClearTerm != nil {
 			log.Println("linuxClearTermPrintErr: ", errLinuxClearTerm)
 			time.Sleep(2 * time.Second)
