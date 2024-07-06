@@ -11,7 +11,7 @@ import (
 	"github.com/gookit/color"
 )
 
-const ver float32 = 0.63
+const ver string = "0.6.3"
 
 func clearTerm() {
 	white := color.New(color.FgWhite, color.BgBlack).Render
