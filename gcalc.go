@@ -80,9 +80,19 @@ func main() {
 		case "x":
 			fmt.Println(num1 * num2)
 		case "/":
-			fmt.Println(num1 / num2)
+			if num2 == 0 {
+				log.Println("Error: Division by zero is not allowed.")
+				time.Sleep(2 * time.Second)
+			} else {
+				fmt.Println(num1 / num2)
+			}
 		case "d":
-			fmt.Println(num1 / num2)
+			if num2 == 0 {
+				log.Println("Error: Division by zero is not allowed.")
+				time.Sleep(2 * time.Second)
+			} else {
+				fmt.Println(num1 / num2)
+			}
 		default:
 			fmt.Println("Incorrect Operator, Try Again.")
 		}
